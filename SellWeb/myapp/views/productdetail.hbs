@@ -1,0 +1,70 @@
+        <div id="content" class="float_r">
+        	<h1>Product Detail</h1>
+            {{# productdetail}}
+            {{# this}}
+            <div class="content_half float_l">
+        	<a  rel="lightbox[portfolio]" href="/{{this.image_link}}"><img src="/{{this.image_link}}" alt="image" /></a>
+            </div>
+            <div class="content_half float_r">
+                <table>
+                    <tr>
+                        <td width="160">Price:</td>
+                        <td>${{this.price}}</td>
+                    </tr>
+                    <tr>
+                        <td>Availability:</td>
+                        <td>{{this.availability}}</td>
+                    </tr>
+                    <tr>
+                        <td>Model:</td>
+                        <td>Product 14</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer:</td>
+                        <td>{{this.brand}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Quantity</td>
+                        <td><input type="text" value="1" style="width: 20px; text-align: right" /></td>
+                    </tr>
+                    {{/this}}
+                </table>
+                {{/productdetail}}
+                <div class="cleaner h20"></div>
+
+                <a href="shoppingcart.html" class="addtocart"></a>
+
+			</div>
+            <div class="cleaner h30"></div>
+            
+            <h5>Product Description</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper quam sit amet turpis rhoncus id venenatis tellus sollicitudin. Fusce ullamcorper, dolor non mollis pulvinar, turpis tortor commodo nisl, et semper lectus augue blandit tellus. Quisque id bibendum libero. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>.</p>	
+            
+          <div class="cleaner h50"></div>
+            
+            <h3>Related Products</h3>
+            {{# each relativeproduct}}
+            {{# each this}}
+        	<div class="product_box">
+                <h3>{{this.name}}</h3>
+            	<a href="/products/productDetail/{{this.brand}}/{{this._id}}"><img src="/{{this.image_link}}" alt="" /></a>
+                <p class="product_price">$ {{this.price}}</p>
+                <a href="shoppingcart.html" class="addtocart"></a>
+                <a href="productdetail.html" class="detail"></a>
+            </div>   
+            {{/each}}     	
+            {{/each}}
+        </div> 
+        <div class="cleaner"></div>
+    </div> <!-- END of templatemo_main -->
+    
+    <div id="templatemo_footer">
+    	<p><a href="#">Home</a> | <a href="#">Products</a> | <a href="#">About</a> | <a href="#">FAQs</a> | <a href="#">Checkout</a> | <a href="#">Contact Us</a>
+		</p>
+
+		Copyright © 2072 <a href="#">Your Company Name</a> <!-- Credit: www.templatemo.com -->
+    	
+    </div> <!-- END of templatemo_footer -->
+    
+</div> <!-- END of templatemo_wrapper -->
+</div> <!-- END of templatemo_body_wrapper -->

@@ -1,0 +1,25 @@
+    <div id="content" class="float_r">
+        	<h1> Products</h1>
+            {{# each Products}}
+            {{# each this}} 
+            <div class="product_box">
+	            <h3>{{this.name}}</h3>
+            	<a href="/products/productDetail/{{this.brand}}/{{this._id}}"><img src={{this.image_link}} alt="Shoes 1"  /></a>
+                <p>{{this.description}}</p>
+              <p class="product_price">$ {{this.price}}</p>
+                <a href="shoppingcart.html" class="addtocart"></a>
+                <a href="/products/productDetail/{{this._id}}" class="detail"></a>
+            </div>    
+            {{/each}}    	    
+            <div class="cleaner"></div>
+            {{/each}}
+    </div> <!-- END of templatemo_main -->
+    
+    <div id="templatemo_footer">
+    	<p><a href="#">Home</a> | <a href="#">Products</a> | <a href="#">About</a> | <a href="#">FAQs</a> | <a href="#">Checkout</a> | <a href="#">Contact Us</a>
+		</p>
+    	Copyright © 2072 <a href="#">Your Company Name</a> <!-- Credit: www.templatemo.com -->
+    </div> <!-- END of templatemo_footer -->
+    
+</div> <!-- END of templatemo_wrapper -->
+</div> <!-- END of templatemo_body_wrapper -->
