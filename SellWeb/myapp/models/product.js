@@ -18,6 +18,10 @@ var ProductSchema = new Schema(
 	image_link: {type: String},
 	//mô tả
 	description:{type: String},
+	//bán chạy
+	sells: {type: Number},
+	//tham chieu den category
+	categoryID: String,
   }
 );
 
