@@ -7,7 +7,7 @@ var ProductSchema = new Schema(
 	// Tên sản phẩm
 	name: {type: String},
 	// Thương hiệu
-	brand: {type: String},
+	brand: {type: Schema.Types.ObjectId, ref: "brand" },
 	// giá sản phẩm
 	price: {type: Number},
 	//số lượng
@@ -21,7 +21,7 @@ var ProductSchema = new Schema(
 	//bán chạy
 	sells: {type: Number},
 	//tham chieu den category
-	categoryID: String,
+	categoryID: {type: Schema.Types.ObjectId, ref: "category"},
   }
 );
 
