@@ -16,7 +16,7 @@ mongoose.connect("mongodb://hthoa9497:t01655766369h@ds263759.mlab.com:63759/sell
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs',expressHbs({defaultLayout:'layout',extname:'.hbs'}));
+app.engine('.hbs',expressHbs({defaultLayout:false,extname:'.hbs'}));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));

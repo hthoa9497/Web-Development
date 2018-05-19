@@ -28,3 +28,8 @@ router.get('/checkout', menuTags.checkoutTag);
 //GET contactus page
 router.get('/contactus', menuTags.contactusTag);
 module.exports = router;
+
+/*Get Admin home page */
+router.get('/adminHome', function(req, res){
+    res.render('Admin/index', {title: "Admin", layout: 'layoutAdmin'});
+})

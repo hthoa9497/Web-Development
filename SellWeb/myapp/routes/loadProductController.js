@@ -16,7 +16,7 @@ var loadProduct = {
             for (var i = 0; i < 6; i += chuckSize) {
                 productChuck.push(docs.slice(i, i + chuckSize));
             }
-            res.render('index', { title: 'Shoes-shop', Products: productChuck, Categories: categoryChuck, Brands: brandChuck });
+            res.render('User/index', { title: 'Shoes-shop', Products: productChuck, Categories: categoryChuck, Brands: brandChuck, layout: 'layoutUser' });
         });
     },
     loadAllProduct: function (req, res) {
@@ -26,7 +26,7 @@ var loadProduct = {
             for (var i = 0; i < docs.length; i += chuckSize) {
                 productChuck.push(docs.slice(i, i + chuckSize));
             }
-            res.render('products', { title: 'ProductSite', Products: productChuck, Categories: categoryChuck, Brands: brandChuck })
+            res.render('User/products', { title: 'ProductSite', Products: productChuck, Categories: categoryChuck, Brands: brandChuck, layout: 'layoutUser'  })
         });
     },
     loadDetailProduct: function (req, res) {
@@ -50,11 +50,12 @@ var loadProduct = {
             function (err, result) {
                 var productChuck = [];
                 productChuck.push(result.one.slice(0, 3));
-                res.render('productdetail', {
+                res.render('User/productdetail', {
                     title: 'Product detail',
                     productdetail: result.two,
                     relativeproduct: productChuck,
-                    Categories: categoryChuck, Brands: brandChuck
+                    Categories: categoryChuck, Brands: brandChuck,
+                    layout: 'layoutUser' 
                 });
             });
     },
@@ -67,7 +68,7 @@ var loadProduct = {
             if (err) throw err;
             else {
                 productChuck.push(Products.slice(0, Products.length));
-                res.render('Group-products', { title: 'Group-Products', GroupProducts: productChuck, name: Name, Categories: categoryChuck, Brands: brandChuck });
+                res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck, name: Name, Categories: categoryChuck, Brands: brandChuck, layout: 'layoutUser' });
             }
         });
     },
@@ -81,7 +82,7 @@ var loadProduct = {
             else {
                 //console.log(Products);
                 productChuck.push(Products.slice(0, Products.length));
-                res.render('Group-products', { title: 'Group-Products', GroupProducts: productChuck,name: Name, Categories: categoryChuck, Brands: brandChuck });
+                res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck,name: Name, Categories: categoryChuck, Brands: brandChuck, layout: 'layoutUser' });
             }
         });
     }
