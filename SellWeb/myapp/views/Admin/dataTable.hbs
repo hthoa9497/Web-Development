@@ -55,7 +55,7 @@
                         <th>TÌNH TRẠNG</th>
                         <th>LINK HÌNH</th>
                         <th>MÔ TẢ</th>
-                        <th>SỐ LƯỢNG BÁN</th>
+                        <th>SL</th>
                         <th>LOẠI</th>
                       </tr>
                     </thead>
@@ -72,6 +72,8 @@
                         <td>{{this.description}}</td>
                         <td>{{this.sells}}</td>
                         <td>Loại {{this.categoryID.name}}</td>
+                        <td><a href="/adminHome/dataTable/productData/{{this._id}}/delete"><button>Xóa</button></a></td>
+                        {{!-- <td><a href="/adminHome/dataTable/productData/{{this._id}}/edit"><button>Sửa</button></a></td> --}}
                       </tr>
                       {{/each}}
                       {{/each}}

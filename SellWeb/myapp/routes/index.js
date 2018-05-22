@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 var app = require('../app.js');
+var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-var productController = require('./productController');
-var adminController = require('./adminController');
-var menuTags = require('./tagsMenuContronller');
+var productController = require('../controller/productController');
+var adminController = require('../controller/adminController');
+var menuTags = require('../controller/tagsMenuContronller');
+var productAdminController = require('../controller/productAdminController');
 
 
 
@@ -19,7 +20,6 @@ router.get('/products/productDetail/:brand/:id' ,productController.loadDetailPro
 router.get('/product/category-products/:id/:name', productController.loadCategoryProduct),
 //GET brand product page
 router.get('/products/brand/:id/:name',productController.loadBrandProduct);
-
 //GET about page
 router.get('/about', menuTags.aboutTag);
 //GET faqs page
@@ -35,4 +35,5 @@ router.get('/adminHome', function(req, res){
     res.render('Admin/index', {title: "Admin", layout: 'layoutAdmin'});
 });
 router.get('/adminHome/dataTable/productData', adminController.loadProductTable);
+router.get('/adminHome/dataTable/productData/:id/delete', urlencodedParser, productAdminController.deleteProduct);
 module.exports = router;

@@ -6,7 +6,6 @@ var adminController = {
         Product.find().populate('categoryID').populate('brand').exec(function(err,products){
             if(err) throw err;
             else{
-                console.log(products);
                 productChuck.push(products.slice(0,products.length));   
                 res.render('Admin/dataTable', {title: "Admin", layout: 'layoutAdmin', Products: productChuck});
             }
