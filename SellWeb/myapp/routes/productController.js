@@ -8,7 +8,7 @@ var Brands = {};
 var brandChuck = [];
 loadMenu.loadBrandMenu(Brands, brandChuck);
 loadMenu.loadCategoryMenu(Categories, categoryChuck);
-var loadProduct = {
+var productController = {
     loadHomeProduct: function (req, res) {
         Product.find(function (err, docs) {
             var productChuck = [];
@@ -88,4 +88,4 @@ var loadProduct = {
     }
 }
 
-module.exports = loadProduct;
+module.exports = productController;
