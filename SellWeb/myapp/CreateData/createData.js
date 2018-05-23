@@ -2,7 +2,7 @@
 
 var brand=require('../models/brand.js');
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://hthoa9497:t01655766369h@ds263759.mlab.com:63759/sellwebdb");
+mongoose.connect("mongodb://hthoa:t01655766369h@ds161901.mlab.com:61901/sellweb");
 
 var async = require('async')
 var Brand=require('../models/brand.js');
@@ -88,7 +88,7 @@ function createCategories(cb) {
           categoryCreate('nam', callback);
         },
         function(callback) {
-          categoryCreate('nu', callback);
+          categoryCreate('nữ', callback);
           }
         ],
         // optional callback

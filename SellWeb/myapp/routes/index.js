@@ -4,9 +4,9 @@ var app = require('../app.js');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var productController = require('../controller/productController');
-var adminController = require('../controller/adminController');
 var menuTags = require('../controller/tagsMenuContronller');
 var productAdminController = require('../controller/productAdminController');
+var brandAdminController = require('../controller/brandAdminController')
 
 
 
@@ -34,8 +34,19 @@ router.get('/contactus', menuTags.contactusTag);
 router.get('/adminHome', function(req, res){
     res.render('Admin/index', {title: "Admin", layout: 'layoutAdmin'});
 });
-router.get('/adminHome/dataTable/productData', adminController.loadProductTable);
-router.get('/adminHome/dataTable/productData/:id/delete', urlencodedParser, productAdminController.deleteProduct);
-router.get('/adminHome/dataTable/productData/:id/edit', productAdminController.editProduct_Get);
-router.post('/adminHome/dataTable/productData/:id/edit', productAdminController.editProduct_Post);
+//Get page product Admin
+router.get('/adminHome/productTable', productAdminController.loadProductTable);
+router.get('/adminHome/productTable/:id/delete', urlencodedParser, productAdminController.deleteProduct);
+router.get('/adminHome/productTable/:id/edit', productAdminController.editProduct_Get);
+router.post('/adminHome/productTable/:id/edit', productAdminController.editProduct_Post);
+router.get('/adminHome/productTable/create', productAdminController.createProduct_Get);
+router.post('/adminHome/productTable/create', productAdminController.createProduct_Post);
+//Get page brand Admin
+router.get('/adminHome/brandTable', brandAdminController.loadBrandTable);
+router.get('/adminHome/brandTable/:id/delete', brandAdminController.deleteBrand_page);
+router.get('/adminHome/brandTable/:id/:brand/deleteBrandProduct', brandAdminController.deleteBrandProduct);
+router.get('/adminHome/brandTable/:id/deleteBrand',brandAdminController.deleteBrand );
+router.get('/adminHome/brandTable/create', brandAdminController.createBrand_Get);
+router.post('/adminHome/brandTable/create', brandAdminController.createBrand_Post);
+//router.get('/adminHome/brandTable/:id/edit', productAdminController.editProduct_Get);
 module.exports = router;

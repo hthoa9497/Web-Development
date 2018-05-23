@@ -12,7 +12,7 @@ var app = express();
 
 
 //Connect database.
-mongoose.connect("mongodb://hthoa9497:t01655766369h@ds263759.mlab.com:63759/sellwebdb");
+mongoose.connect("mongodb://hthoa:t01655766369h@ds161901.mlab.com:61901/sellweb");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
