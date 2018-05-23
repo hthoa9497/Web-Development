@@ -36,4 +36,6 @@ router.get('/adminHome', function(req, res){
 });
 router.get('/adminHome/dataTable/productData', adminController.loadProductTable);
 router.get('/adminHome/dataTable/productData/:id/delete', urlencodedParser, productAdminController.deleteProduct);
+router.get('/adminHome/dataTable/productData/:id/edit', productAdminController.editProduct_Get);
+router.post('/adminHome/dataTable/productData/:id/edit', productAdminController.editProduct_Post);
 module.exports = router;

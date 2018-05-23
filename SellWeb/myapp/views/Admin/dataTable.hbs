@@ -72,8 +72,8 @@
                         <td>{{this.description}}</td>
                         <td>{{this.sells}}</td>
                         <td>Loại {{this.categoryID.name}}</td>
-                        <td><a href="/adminHome/dataTable/productData/{{this._id}}/delete"><button>Xóa</button></a></td>
-                        {{!-- <td><a href="/adminHome/dataTable/productData/{{this._id}}/edit"><button>Sửa</button></a></td> --}}
+                        <td><a href="/adminHome/dataTable/productData/{{this._id}}/delete"><button type="button" class="btn btn-warning">Xóa</button></a></td>
+                        <td><a href="/adminHome/dataTable/productData/{{this._id}}/edit"><button type="button" class="btn btn-info">Sửa</button></a></td>
                       </tr>
                       {{/each}}
                       {{/each}}
@@ -83,20 +83,6 @@
                 </div>
               </div>
             </div>
-{{!-- <table>
-    <tr>
-        <td>
-            <input type="text" name="company" form="my_form" />
-        </td>
-        <td>
-            <input type="text" name="company" form="my_form" />
-        </td>
-        <td>
-            <input type="text" name="company" form="my_form" />
-        </td>
-        
-    </tr>
-</table> --}}
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
@@ -2306,99 +2292,12 @@
           <div id="notif-group" class="tabbed_notifications"></div>
         </div>
 
-        <script src="stylesheets/Admin/js/bootstrap.min.js"></script>
+        <script src="/stylesheets/Admin/js/bootstrap.min.js"></script>
 
         <!-- bootstrap progress js -->
-        <script src="stylesheets/Admin/js/progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="stylesheets/Admin/js/nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="/stylesheets/Admin/js/progressbar/bootstrap-progressbar.min.js"></script>
+        <script src="/stylesheets/Admin/js/nicescroll/jquery.nicescroll.min.js"></script>
         <!-- icheck -->
-        <script src="stylesheets/Admin/js/icheck/icheck.min.js"></script>
+        <script src="/stylesheets/Admin/js/icheck/icheck.min.js"></script>
 
-        <script src="stylesheets/Admin/js/custom.js"></script>
-
-
-        <!-- Datatables -->
-        <!-- <script src="js/datatables/js/jquery.dataTables.js"></script>
-  <script src="js/datatables/tools/js/dataTables.tableTools.js"></script> -->
-
-        <!-- Datatables-->
-        <script src="stylesheets/Admin/js/datatables/jquery.dataTables.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/dataTables.bootstrap.js"></script>
-        <script src="stylesheets/Admin/js/datatables/dataTables.buttons.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/buttons.bootstrap.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/jszip.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/pdfmake.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/vfs_fonts.js"></script>
-        <script src="stylesheets/Admin/js/datatables/buttons.html5.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/buttons.print.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/dataTables.fixedHeader.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/dataTables.keyTable.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/dataTables.responsive.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/responsive.bootstrap.min.js"></script>
-        <script src="stylesheets/Admin/js/datatables/dataTables.scroller.min.js"></script>
-
-
-        <!-- pace -->
-        <script src="stylesheets/Admin/js/pace/pace.min.js"></script>
-        <script>
-          var handleDataTableButtons = function() {
-              "use strict";
-              0 !== $("#datatable-buttons").length && $("#datatable-buttons").DataTable({
-                dom: "Bfrtip",
-                buttons: [{
-                  extend: "copy",
-                  className: "btn-sm"
-                }, {
-                  extend: "csv",
-                  className: "btn-sm"
-                }, {
-                  extend: "excel",
-                  className: "btn-sm"
-                }, {
-                  extend: "pdf",
-                  className: "btn-sm"
-                }, {
-                  extend: "print",
-                  className: "btn-sm"
-                }],
-                responsive: !0
-              })
-            },
-            TableManageButtons = function() {
-              "use strict";
-              return {
-                init: function() {
-                  handleDataTableButtons()
-                }
-              }
-            }();
-        </script>
-        <script type="text/javascript">
-          $(document).ready(function() {
-            $('#datatable').dataTable();
-            $('#datatable-keytable').DataTable({
-              keys: true
-            });
-            $('#datatable-responsive').DataTable();
-            $('#datatable-scroller').DataTable({
-              ajax: "js/datatables/json/scroller-demo.json",
-              deferRender: true,
-              scrollY: 380,
-              scrollCollapse: true,
-              scroller: true
-            });
-            var table = $('#datatable-fixed-header').DataTable({
-              fixedHeader: true
-            });
-          });
-          TableManageButtons.init();
-        </script>
-        
-  <script src="stylesheets/Admin/js/bootstrap.min.js"></script>
-  <!-- bootstrap progress js -->
-  <script src="stylesheets/Admin/js/progressbar/bootstrap-progressbar.min.js"></script>
-  <script src="stylesheets/Admin/js/nicescroll/jquery.nicescroll.min.js"></script>
- 
-  <!-- chart js -->
-  <script src="stylesheets/Admin/js/custom.js"></script>
-  <!-- /footer content -->
+        <script src="/stylesheets/Admin/js/custom.js"></script>
