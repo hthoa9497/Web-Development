@@ -30,7 +30,9 @@ var productController = {
         });
     },
     loadDetailProduct: function (req, res) {
+        console.log(req.params.id);
         async.parallel({
+            
             two: function (callback) {
                 Product.find({ _id: req.params.id }).populate('brand').populate('categoryID').exec(function (err, aProduct) {
                     if (err) throw err;
@@ -77,7 +79,7 @@ var productController = {
         var Name = req.params.name;
         var productChuck = [];
 
-        Product.find({ brand: IDBrand }).populate('brand').exec(function (err, Products) {
+        Product.find({ brand: IDBrand }).exec(function (err, Products) {
             if (err) throw err;
             else {
                 //console.log(Products);

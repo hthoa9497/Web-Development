@@ -10,6 +10,12 @@ var mongoose = require('mongoose');
 var expressHbs = require('express-handlebars')  
 var app = express();
 
+var localStrategy = require('passport-local').Strategy;
+var passport = require('passport');
+var session = require('express-session');
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
+
 
 //Connect database.
 mongoose.connect("mongodb://hthoa:t01655766369h@ds161901.mlab.com:61901/sellweb");
@@ -24,9 +30,58 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
+//Express session.
+app.use(session({
+  secret: 'HHSecretKey',
+  resave: true,
+  saveUninitialized: true,
+}))
+
+//Passport init:
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+//connect-flash
+app.use(flash());
+//Global vars
+app.use(function(req,res,next){
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+})
+//serializeUser deserializeUser
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+ 
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+app.use('/', indexRouter);
+app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

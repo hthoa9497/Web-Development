@@ -1,30 +1,30 @@
-        <div id="content" class="float_r">
-        	<div id="slider-wrapp   er">
-                
-                <div id="slider" class="nivoSlider">
-                    <img src="/images/slider/02.jpg" alt="" />
-                    <a href="#"><img src="/images/slider/01.jpg" alt="" title="This is an example of a caption" /></a>
-                    <img src="/images/slider/03.jpg" alt="" />
-                    <img src="/images/slider/04.jpg" alt="" title="#htmlcaption" />
-                </div>
-                <div id="htmlcaption" class="nivo-html-caption">
-                    <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
-                </div>
-            </div>
-            <script type="text/javascript" src="javascripts/User/jquery-1.4.3.min.js"></script>
-            <script type="text/javascript" src="javascripts/User/jquery.nivo.slider.pack.js"></script>
-            <script type="text/javascript">
-            $(window).load(function() {
-                $('#slider').nivoSlider();
-            });
-            </script>
-        	<h1 style="margin-top: 10px;">Sản phẩm mới</h1>
-            {{# each Products}}
-            {{# each this}}
-            {{> showproducts}}
-            {{/each}}      	
-            {{/each}}
-            
-        </div> 
-        <div class="cleaner"></div>
-    </div> <!-- END of templatemo_main -->
+<div id="content" class="float_r">
+    <div id="slider-wrapp   er">
+        
+        <div id="slider" class="nivoSlider">
+            <img src="/images/slider/02.jpg" alt="" />
+            <a href="#"><img src="/images/slider/01.jpg" alt="" title="This is an example of a caption" /></a>
+            <img src="/images/slider/03.jpg" alt="" />
+            <img src="/images/slider/04.jpg" alt="" title="#htmlcaption" />
+        </div>
+        <div id="htmlcaption" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+        </div>
+    </div>
+    <script type="text/javascript" src="javascripts/User/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/User/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+    <h1 style="margin-top: 10px;">Sản phẩm mới</h1>
+    {{# each Products}}
+    {{# each this}}
+    {{> showproducts}}
+    {{/each}}      	
+    {{/each}}
+    
+</div> 
+<div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->

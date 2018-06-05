@@ -2,11 +2,10 @@ var express = require('express');
 var router = express.Router();
 var app = require('../app.js');
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var productController = require('../controller/productController');
 var menuTags = require('../controller/tagsMenuContronller');
 var productAdminController = require('../controller/productAdminController');
-var brandAdminController = require('../controller/brandAdminController')
+var brandAdminController = require('../controller/brandAdminController');
 
 
 
@@ -36,7 +35,7 @@ router.get('/adminHome', function(req, res){
 });
 //Get page product Admin
 router.get('/adminHome/productTable', productAdminController.loadProductTable);
-router.get('/adminHome/productTable/:id/delete', urlencodedParser, productAdminController.deleteProduct);
+router.get('/adminHome/productTable/:id/delete', productAdminController.deleteProduct);
 router.get('/adminHome/productTable/:id/edit', productAdminController.editProduct_Get);
 router.post('/adminHome/productTable/:id/edit', productAdminController.editProduct_Post);
 router.get('/adminHome/productTable/create', productAdminController.createProduct_Get);
@@ -48,5 +47,6 @@ router.get('/adminHome/brandTable/:id/:brand/deleteBrandProduct', brandAdminCont
 router.get('/adminHome/brandTable/:id/deleteBrand',brandAdminController.deleteBrand );
 router.get('/adminHome/brandTable/create', brandAdminController.createBrand_Get);
 router.post('/adminHome/brandTable/create', brandAdminController.createBrand_Post);
-//router.get('/adminHome/brandTable/:id/edit', productAdminController.editProduct_Get);
+    //router.get('/adminHome/brandTable/:id/edit', productAdminController.editProduct_Get);
 module.exports = router;
+ 

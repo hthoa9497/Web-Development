@@ -23,7 +23,6 @@ var productAdminController = {
     },
     //DELETE PRODUCT
     deleteProduct: function(req,res){
-        console.log("ok thanh cong");
         Product.findByIdAndRemove(req.params.id, function(err){
             if(err) throw err;
             else

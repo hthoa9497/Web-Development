@@ -4,6 +4,7 @@ var adminSchema= new Schema({
     id: Number,
     username: String,
     password: String,
-    name: String
+    name: String,
+    gender: boolean
   });
   module.exports = mongoose.model('Admin', adminSchema);

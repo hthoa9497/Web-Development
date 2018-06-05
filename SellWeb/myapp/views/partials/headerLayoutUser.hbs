@@ -1,18 +1,19 @@
+
 <div id="templatemo_body_wrapper">
 <div id="templatemo_wrapper">
 	<div id="templatemo_header">
     	<div id="site_title"><h1><a href="#">Online Shoes Store</a></h1></div>
         <div id="header_right">
         	<p>
-	        <a href="#">My Account</a> | <a href="#">My Wishlist</a> | <a href="#">My Cart</a> | <a href="#">Checkout</a> | <a href="/adminHome">Log In Admin</a></p>
+	        <a href="#">Tài khoản</a> | <a href="#">Giỏ hàng</a> | <a href="#">Kiểm tra</a> {{#if user}} | <a href="/user/logout">Đăng xuất</a> {{else}}| <a href="/user/loginForm">Đăng nhập</a>{{/if}}</p>
             <p>
             	Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
 			</p>
 		</div>
-        <div class="cleaner"></div>
+    <div class="cleaner"></div>
     </div> <!-- END of templatemo_header -->
-	 <div id="templatemo_menubar">
-    	<div id="top_nav" class="ddsmoothmenu">
+    <div id="templatemo_menubar">
+        <div id="top_nav" class="ddsmoothmenu">
             <ul>
                 <li><a href="/" class="selected">Trang chủ</a></li>
                 <li><a href="/products">Sản phẩm</a>
@@ -21,7 +22,7 @@
                         {{# each this}}
                         <li><a href="/product/category-products/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
                         {{/each}}
-                  </ul>
+                    </ul>
                 {{/each}}
                 </li>
                 <li><a href="/about">Thông tin</a>
@@ -29,7 +30,7 @@
                         {{!-- <li><a href="#submenu1">Sub menu 1</a></li>
                         <li><a href="#submenu2">Sub menu 2</a></li>
                         <li><a href="#submenu3">Sub menu 3</a></li> --}}
-                  </ul>
+                    </ul>
                 </li>
                 <li><a href="/faqs">FAQs</a></li>
                 <li><a href="/contactus">Liên hệ</a></li>
