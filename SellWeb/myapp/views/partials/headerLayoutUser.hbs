@@ -4,8 +4,13 @@
 	<div id="templatemo_header">
     	<div id="site_title"><h1><a href="#">Online Shoes Store</a></h1></div>
         <div id="header_right">
-        	<p>
-	        <a href="#">Tài khoản</a> | <a href="#">Giỏ hàng</a> | <a href="#">Kiểm tra</a> {{#if user}} | <a href="/user/logout">Đăng xuất</a> {{else}}| <a href="/user/loginForm">Đăng nhập</a>{{/if}}</p>
+	        <a href="#">Tài khoản</a> | <a href="#">Giỏ hàng</a> | <a href="#">Kiểm tra</a> {{#if user}} | Xin chào: {{user.name}} 
+            <div class="dropdown"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                <div class="dropdown-content">
+                    <a href="/user/logout" style="color: black;">Đăng xuất</a>
+                    <a href="/user/editInfo">Thông tin tài khoản</a>
+                </div>
+            </div>{{else}} | <a href="/user/loginForm">Đăng nhập</a>{{/if}}
             <p>
             	Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
 			</p>
@@ -16,7 +21,7 @@
         <div id="top_nav" class="ddsmoothmenu">
             <ul>
                 <li><a href="/" class="selected">Trang chủ</a></li>
-                <li><a href="/products">Sản phẩm</a>
+                <li><a href="/product">Sản phẩm</a>
                 {{# each Categories}}
                     <ul>
                         {{# each this}}
@@ -26,12 +31,6 @@
                 {{/each}}
                 </li>
                 <li><a href="/about">Thông tin</a>
-                    <ul>
-                        {{!-- <li><a href="#submenu1">Sub menu 1</a></li>
-                        <li><a href="#submenu2">Sub menu 2</a></li>
-                        <li><a href="#submenu3">Sub menu 3</a></li> --}}
-                    </ul>
-                </li>
                 <li><a href="/faqs">FAQs</a></li>
                 <li><a href="/contactus">Liên hệ</a></li>
                 <li><a href="/checkout">Kiểm tra</a><li>
@@ -54,7 +53,7 @@
                     {{# each Brands}}
                 	<ul class="sidebar_list">
                     	{{# each this}}
-                        <li><a href="/products/brand/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
+                        <li><a href="/product/brand/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
                         {{/each}}
                     </ul>
                     {{/each}}

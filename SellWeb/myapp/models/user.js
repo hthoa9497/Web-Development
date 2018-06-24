@@ -11,6 +11,7 @@ var UserSchema = new Schema(
   pass: {type: String, required: true},
   email: {type: String},
   phone: {type: String, min: 10, max: 11},
+  role: {type: Number},
   }
 );
 //Export model

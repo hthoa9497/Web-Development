@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var productsRouter= require('./routes/products');
+var adminsRouter= require('./routes/admins');
 var mongoose = require('mongoose');
 var expressHbs = require('express-handlebars')  
 var app = express();
@@ -82,6 +84,8 @@ passport.deserializeUser(function(id, done) {
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/product',productsRouter);
+app.use('/adminHome', adminsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

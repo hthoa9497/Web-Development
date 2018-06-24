@@ -45,15 +45,20 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/loginForm/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect: '/user/loginForm', failureFlash: true}),
+passport.authenticate('local', {failureRedirect: '/user/loginForm', failureFlash: true }),
   function(req, res){
-    res.redirect('/', {IsLogin: isLogin});
+    if(req.user.role == 0)
+        res.redirect('/');
+    else
+        res.redirect('/adminHome');
 });
-
 router.get('/logout', function(req,res){
     req.logout();
-    req.flash('success_msg', 'you are logged out');
     res.redirect('/')
 })
 
+router.get('/editInfo', function(req, res){
+    res.render('User/editInfo', {title: "Edit information", layout: 'layoutUser'});
+})
+router.post('/editInfo', AuthenticationController.userEditInfo);
 module.exports = router;

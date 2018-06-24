@@ -1,0 +1,28 @@
+<div id="content" class="float_r">
+  <div class="signup-form" style="margin: 50px;"><!--sign up form-->
+    <form method="POST" action="/user/editInfo" style="border:1px solid #ccc">
+      <div class="container">
+        <h1>Cập nhật thông tin tài khoản</h1>
+        <hr>
+
+        <input type="text" placeholder="Tên" name="name" value="{{user.name}}" required/>
+        <input type="date" placeholder="Ngày sinh" name="date_of_birth" value="{{user.date_of_birth}}" required/>
+        <input type="email" placeholder="Email" name="email" value="{{user.email}}" required/>
+        <input type="text" placeholder="SĐT" name="phone" value="{{user.phone}}" required/>
+        <input type="text" placeholder="Tên tài khoản" name="username" value="{{user.username}}" required/>
+        <input type="password" placeholder="Mật khẩu" name="password" value="{{user.password}}" required/>
+        <input type="password" placeholder="Xác nhận mật khẩu" name="repeatPassword" required/>
+        
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix center-row">
+          <button type="button" class="cancelbtn"><a href="/">Hủy</a></button>
+          <button type="submit" class="signupbtn">Cập nhật</button>
+        </div>
+      </div>
+    </form>
+  </div><!--/sign up form-->
+
+</div> 
+<div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
