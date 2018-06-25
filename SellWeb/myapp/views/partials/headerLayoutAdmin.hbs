@@ -1,3 +1,4 @@
+<<<<<<< refs/remotes/origin/master
 <div class="container body">
     <div class="main_container">
 
@@ -109,4 +110,117 @@
         </div>
 
       </div>
+=======
+<div class="container body">
+    <div class="main_container">
+
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>TRANG BÁN HÀNG</span></a>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- menu prile quick info -->
+          <div class="profile">
+            <div class="profile_pic">
+              <img src="/stylesheets/Admin/images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Xin chào,</span>
+              <h2>{{user.name}}</h2>
+            </div>
+          </div>
+          <!-- /menu prile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+            <div class="menu_section">
+              <h3>Chung</h3>
+              <ul class="nav side-menu">
+                <li><a><i class="fa fa-home" href="/adminHome"></i> Tranh chủ </a>
+                </li>
+                <li><a><i class="fa fa-table"></i> Bảng <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="/adminHome/productTable">Bảng sản phẩm</a>
+                    </li>
+                    <li><a href="/adminHome/brandTable">Bảng NSX</a>
+                    </li>
+                    </li>
+                    <li><a href="/adminHome/userTable">Bảng khách hàng</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-bar-chart-o"></i> Biểu đồ <span class="fa fa-chevron-down"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img src="stylesheets/Admin//img.jpg" alt="">{{user.name}}
+                  <span class=" fa fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                  <li><a href="javascript:;">  Profile</a>
+                  </li>
+                  <li>
+                    <a href="/adminHome/editInfo">
+                      <span>Cập nhật tài khoản</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">Help</a>
+                  </li>
+                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li role="presentation" class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="badge bg-green"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+>>>>>>> distributed
       <!-- /top navigation -->

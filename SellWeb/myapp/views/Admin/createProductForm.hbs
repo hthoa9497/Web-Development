@@ -1,3 +1,4 @@
+<<<<<<< refs/remotes/origin/master
     <div class="right_col" role="main">
       <div class="">
 
@@ -118,4 +119,127 @@
 
       <script src="/stylesheets/Admin/js/custom.js"></script>
 
+=======
+
+    <div class="right_col" role="main">
+      <div class="">
+
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Add Product</h3>
+          </div>
+          <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Go!</button>
+                      </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Form Add Product</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form name="createProductForm" method="POST" action="/adminHome/productTable/create" class="form-horizontal form-label-left">
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tên sản phẩm <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" name="name" required="required" class="form-control col-md-7 col-xs-12" value="">
+                    </div>
+                  </div>
+                  <!-- brand -->
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">NSX
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      {{# each Brands}}
+                      <select class="form-control" name="brand">
+                        {{# each this}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                      </select>
+                      {{/each}}
+                    </div>
+                  </div>  
+                  <!-- gia -->       
+                  <div class="form-group">
+                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Giá</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" type="text" name="price" value=""/>
+                    </div>
+                  </div>
+                  <!-- sl -->
+                  <div class="form-group">
+                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">SL</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" type="text" name="quantity" value=""/>
+                    </div>
+                  </div>
+                  <!-- descrip -->
+                  <div class="form-group">
+                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" type="text" name="description" value=""/>
+                    </div>
+                  </div>
+                  <!-- Loai -->
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Loại
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      {{# each Categories}}
+                      <select class="form-control" name="categoryID">
+                        {{# each this}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                      </select>
+                      {{/each}}
+                    </div>
+                  </div> 
+                  <!-- Link hinh -->
+                  <div class="form-group">
+                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Hình ảnh</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" type="text" name="imageName" value=""/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <a href="/adminHome/productTable"><button type="button" class="btn btn-primary">Cancel</button></a>
+                      <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div id="custom_notifications" class="custom-notifications dsp_none">
+          <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+          </ul>
+          <div class="clearfix"></div>
+          <div id="notif-group" class="tabbed_notifications"></div>
+      </div>
+
+      <script src="/stylesheets/Admin/js/bootstrap.min.js"></script>
+
+      <!-- bootstrap progress js -->
+      <script src="/stylesheets/Admin/js/progressbar/bootstrap-progressbar.min.js"></script>
+      <script src="/stylesheets/Admin/js/nicescroll/jquery.nicescroll.min.js"></script>
+      <!-- icheck -->
+      <script src="/stylesheets/Admin/js/icheck/icheck.min.js"></script>
+
+      <script src="/stylesheets/Admin/js/custom.js"></script>
+
+>>>>>>> distributed
         
