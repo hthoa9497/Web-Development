@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> parent of b41642a... Update information user
 var Product = require("../models/product.js");
 var async = require('async');
 var loadMenu = require('./loadMenu');
@@ -91,6 +94,7 @@ var productController = {
     }
 }
 
+<<<<<<< HEAD
 =======
 var Product = require("../models/product.js");
 var async = require('async');
@@ -271,4 +275,6 @@ var productController = {
 }
 
 >>>>>>> distributed
+=======
+>>>>>>> parent of b41642a... Update information user
 module.exports = productController;

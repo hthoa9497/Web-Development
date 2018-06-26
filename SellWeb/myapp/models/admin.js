@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> parent of b41642a... Update information user
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var adminSchema= new Schema({
@@ -8,6 +11,7 @@ var adminSchema= new Schema({
     name: String,
     gender: boolean
   });
+<<<<<<< HEAD
 =======
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -19,4 +23,6 @@ var adminSchema= new Schema({
     gender: boolean
   });
 >>>>>>> distributed
+=======
+>>>>>>> parent of b41642a... Update information user
   module.exports = mongoose.model('Admin', adminSchema);

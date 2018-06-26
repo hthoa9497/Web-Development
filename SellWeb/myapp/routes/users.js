@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> parent of b41642a... Update information user
 var express = require('express');
 var router = express.Router();
 var app = require('../app.js');
@@ -46,6 +49,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/loginForm/login',
+<<<<<<< HEAD
 passport.authenticate('local', {failureRedirect: '/user/loginForm', failureFlash: true }),
   function(req, res){
     if(req.user.role == 0)
@@ -120,4 +124,17 @@ router.get('/logout', AuthenticationController.userLogout);
 router.get('/editInfo',AuthenticationController.userEditInfoPage);
 router.post('/editInfo', AuthenticationController.userEditInfo);
 >>>>>>> distributed
+=======
+  passport.authenticate('local', {successRedirect:'/', failureRedirect: '/user/loginForm', failureFlash: true}),
+  function(req, res){
+    res.redirect('/', {IsLogin: isLogin});
+});
+
+router.get('/logout', function(req,res){
+    req.logout();
+    req.flash('success_msg', 'you are logged out');
+    res.redirect('/')
+})
+
+>>>>>>> parent of b41642a... Update information user
 module.exports = router;

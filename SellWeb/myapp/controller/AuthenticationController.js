@@ -1,5 +1,8 @@
 var User = require("../models/user.js")
+<<<<<<< HEAD
 var bcrypt = require('bcrypt');
+=======
+>>>>>>> parent of b41642a... Update information user
 
 var authenticationController = {
     userSignup: function(req, res){
@@ -13,6 +16,7 @@ var authenticationController = {
 
         //Validation
         req.checkBody('repeatPassword', 'Password do not match').equals(req.body.password);    
+<<<<<<< HEAD
         User.findOne({username: req.body.username}, function(err,isExists){
             if(isExists!=null){
                 console.log(isExists);
@@ -82,6 +86,32 @@ var authenticationController = {
         .catch(function(reject){   
             console.log(reject);
         })
+=======
+        
+        var errors = req.validationErrors();
+        if(errors){
+            req.flash('error_msg', 'Mật khẩu không khớp');
+            res.redirect('/user/loginForm');
+        }
+        else{
+            var newUser = new User({
+                name: name,
+                date_of_birth: date_of_birth,
+                username: username,
+                pass: password,
+                email: email,
+                phone: phone
+            });
+            User.createUser(newUser, function(err, user){
+                if(err) throw err;
+            })
+            req.flash('success_msg', 'Đăng ký thành công, bây giờ bạn có thể đăng nhập');
+            res.redirect('/user/loginForm');
+        }
+    },
+    userLoginPage: function(req,res){
+        res.render('User/loginForm', {title:'Login page', layout: 'layoutUser'});
+>>>>>>> parent of b41642a... Update information user
     }
 }
 module.exports = authenticationController;

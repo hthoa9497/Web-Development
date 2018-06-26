@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> parent of b41642a... Update information user
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var Schema = mongoose.Schema;
@@ -12,7 +15,10 @@ var UserSchema = new Schema(
   pass: {type: String, required: true},
   email: {type: String},
   phone: {type: String, min: 10, max: 11},
+<<<<<<< HEAD
   role: {type: Number},
+=======
+>>>>>>> parent of b41642a... Update information user
   }
 );
 //Export model
@@ -41,6 +47,7 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     if(err) throw err;
     callback(null, isMatch);
   })
+<<<<<<< HEAD
 =======
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
@@ -85,4 +92,6 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     callback(null, isMatch);
   })
 >>>>>>> distributed
+=======
+>>>>>>> parent of b41642a... Update information user
 }

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> parent of b41642a... Update information user
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -17,6 +20,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+<<<<<<< HEAD
 }
 
 button:hover {
@@ -203,6 +207,9 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+=======
+    width: 100%;
+>>>>>>> parent of b41642a... Update information user
 }
 
 button:hover {
@@ -259,6 +266,7 @@ span.psw {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
+<<<<<<< HEAD
 .fade {
     opacity: 0;
     -webkit-transition: opacity .15s linear;
@@ -282,6 +290,9 @@ span.psw {
     width: auto;
     margin: 10px;
 }
+=======
+
+>>>>>>> parent of b41642a... Update information user
 /* The Close Button (x) */
 .close {
     position: absolute;
@@ -323,6 +334,7 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+<<<<<<< HEAD
 }
 .center-row{
     display: flex;
@@ -371,4 +383,6 @@ hr {
     clear: both;
     display: table;
 >>>>>>> distributed
+=======
+>>>>>>> parent of b41642a... Update information user
 }

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> parent of b41642a... Update information user
 var loadMenu = require('./loadMenu');
 
 var Categories = {};
@@ -22,6 +25,7 @@ var menuTags = {
         res.render('User/contact', {title: "Contactus", Categories: categoryChuck, Brands: brandChuck, layout: 'layoutUser'});
     }
 }
+<<<<<<< HEAD
 =======
 var loadMenu = require('./loadMenu');
 var async = require('async');
@@ -117,4 +121,6 @@ var menuTags = {
     }
 }
 >>>>>>> distributed
+=======
+>>>>>>> parent of b41642a... Update information user
 module.exports = menuTags;
