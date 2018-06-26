@@ -1,108 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< refs/remotes/origin/master
-=======
->>>>>>> parent of b41642a... Update information user
-
-<div id="templatemo_body_wrapper">
-<div id="templatemo_wrapper">
-	<div id="templatemo_header">
-    	<div id="site_title"><h1><a href="#">Online Shoes Store</a></h1></div>
-        <div id="header_right">
-<<<<<<< HEAD
-	        <a href="#">Tài khoản</a> | <a href="#">Giỏ hàng</a> | <a href="#">Kiểm tra</a> {{#if user}} | Xin chào: {{user.name}} 
-            <div class="dropdown"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                <div class="dropdown-content">
-                    <a href="/user/logout" style="color: black;">Đăng xuất</a>
-                    <a href="/user/editInfo">Thông tin tài khoản</a>
-                </div>
-            </div>{{else}} | <a href="/user/loginForm">Đăng nhập</a>{{/if}}
-=======
-        	<p>
-	        <a href="#">Tài khoản</a> | <a href="#">Giỏ hàng</a> | <a href="#">Kiểm tra</a> {{#if user}} | <a href="/user/logout">Đăng xuất</a> {{else}}| <a href="/user/loginForm">Đăng nhập</a>{{/if}}</p>
->>>>>>> parent of b41642a... Update information user
-            <p>
-            	Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
-			</p>
-		</div>
-    <div class="cleaner"></div>
-    </div> <!-- END of templatemo_header -->
-    <div id="templatemo_menubar">
-        <div id="top_nav" class="ddsmoothmenu">
-            <ul>
-                <li><a href="/" class="selected">Trang chủ</a></li>
-<<<<<<< HEAD
-                <li><a href="/product">Sản phẩm</a>
-=======
-                <li><a href="/products">Sản phẩm</a>
->>>>>>> parent of b41642a... Update information user
-                {{# each Categories}}
-                    <ul>
-                        {{# each this}}
-                        <li><a href="/product/category-products/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
-                        {{/each}}
-                    </ul>
-                {{/each}}
-                </li>
-                <li><a href="/about">Thông tin</a>
-<<<<<<< HEAD
-                <li><a href="/faqs">FAQs</a></li>
-                <li><a href="/contactus">Liên hệ</a></li>
-                <li><a href="/checkout">Kiểm tra</a><li>
-            </ul>
-            <br style="clear: left" />
-        </div> <!-- end of ddsmoothmenu -->
-        <div id="templatemo_search">
-            <form action="#" method="get">
-              <input type="text" value=" " name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
-              <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="Search" class="sub_btn"  />
-            </form>
-        </div>
-    </div> <!-- END of templatemo_menubar -->
-	
-    <div id="templatemo_main">
-    	<div id="sidebar" class="float_l">
-        	<div class="sidebar_box"><span class="bottom"></span>
-            	<h3>Thương hiệu</h3>   
-                <div class="content"> 
-                    {{# each Brands}}
-                	<ul class="sidebar_list">
-                    	{{# each this}}
-                        <li><a href="/product/brand/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
-                        {{/each}}
-                    </ul>
-                    {{/each}}
-                </div>
-            </div>
-            <div class="sidebar_box"><span class="bottom"></span>
-            	<h3>Bán chạy nhất </h3>   
-                <div class="content"> 
-                	<div class="bs_box">
-                    	<a href="#"><img src="/images/templatemo_image_01.jpg" alt="image" /></a>
-                        <h4><a href="#">Donec nunc nisl</a></h4>
-                        <p class="price">$10</p>
-                        <div class="cleaner"></div>
-                    </div>
-                    <div class="bs_box">
-                    	<a href="#"><img src="/images/templatemo_image_01.jpg" alt="image" /></a>
-                        <h4><a href="#">Lorem ipsum dolor sit</a></h4>
-                        <p class="price">$12</p>
-                        <div class="cleaner"></div>
-                    </div>
-                    <div class="bs_box">
-                    	<a href="#"><img src="/images/templatemo_image_01.jpg" alt="image" /></a>
-                        <h4><a href="#">Phasellus ut dui</a></h4>
-                        <p class="price">$20</p>
-                        <div class="cleaner"></div>
-                    </div>
-                    <div class="bs_box">
-                    	<a href="#"><img src="/images/templatemo_image_01.jpg" alt="image" /></a>
-                        <h4><a href="#">Vestibulum ante</a></h4>
-                        <p class="price">$8</p>
-                        <div class="cleaner"></div>
-                    </div>
-                </div>
-            </div>
-=======
 
 <div id="templatemo_body_wrapper">
 <div id="templatemo_wrapper">
@@ -114,10 +9,11 @@
                 <div class="dropdown-content">
                     <a href="/user/logout" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Đăng xuất</a>
                     <a href="/user/editInfo" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Thông tin tài khoản</a>
+                    <a href="/user/editPassword" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Đổi mật khẩu</a>
                 </div>
             </div>{{else}} | <a href="/user/loginForm">Đăng nhập</a>{{/if}}
             <p>
-            	Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
+            	Shopping Cart: <strong>{{session.cart.totalQty}} sản phẩm</strong> ( <a href="/product/shoppingCart">Show Cart</a> )
 			</p>
 		</div>
     <div class="cleaner"></div>
@@ -136,14 +32,6 @@
                 {{/each}}
                 </li>
                 <li><a href="/about">Thông tin</a>
-=======
-                    <ul>
-                        {{!-- <li><a href="#submenu1">Sub menu 1</a></li>
-                        <li><a href="#submenu2">Sub menu 2</a></li>
-                        <li><a href="#submenu3">Sub menu 3</a></li> --}}
-                    </ul>
-                </li>
->>>>>>> parent of b41642a... Update information user
                 <li><a href="/faqs">FAQs</a></li>
                 <li><a href="/contactus">Liên hệ</a></li>
                 <li><a href="/checkout">Kiểm tra</a><li>
@@ -151,8 +39,8 @@
             <br style="clear: left" />
         </div> <!-- end of ddsmoothmenu -->
         <div id="templatemo_search">
-            <form action="#" method="get">
-              <input type="text" value=" " name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+            <form action="/product/search" method="POST">
+              <input type="text" value="" name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
               <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="Search" class="sub_btn"  />
             </form>
         </div>
@@ -166,11 +54,7 @@
                     {{# each Brands}}
                 	<ul class="sidebar_list">
                     	{{# each this}}
-<<<<<<< HEAD
                         <li><a href="/product/brand/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
-=======
-                        <li><a href="/products/brand/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
->>>>>>> parent of b41642a... Update information user
                         {{/each}}
                     </ul>
                     {{/each}}
@@ -205,8 +89,4 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
->>>>>>> distributed
-=======
->>>>>>> parent of b41642a... Update information user
 	</div>

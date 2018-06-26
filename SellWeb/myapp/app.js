@@ -6,11 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-<<<<<<< HEAD
 var productsRouter= require('./routes/products');
 var adminsRouter= require('./routes/admins');
-=======
->>>>>>> parent of b41642a... Update information user
 var mongoose = require('mongoose');
 var expressHbs = require('express-handlebars')  
 var app = express();
@@ -20,6 +17,7 @@ var passport = require('passport');
 var session = require('express-session');
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
+var MongoDBStore = require('connect-mongo')(session);
 
 
 //Connect database.
@@ -41,6 +39,8 @@ app.use(session({
   secret: 'HHSecretKey',
   resave: true,
   saveUninitialized: true,
+  store: new MongoDBStore({ mongooseConnection: mongoose.connection}),
+  cookie: { maxAge: 180*60*1000 },
 }))
 
 //Passport init:
@@ -72,6 +72,7 @@ app.use(function(req,res,next){
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
   res.locals.user = req.user || null;
+  res.locals.session = req.session;
   next();
 })
 //serializeUser deserializeUser
@@ -87,11 +88,8 @@ passport.deserializeUser(function(id, done) {
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
-<<<<<<< HEAD
 app.use('/product',productsRouter);
 app.use('/adminHome', adminsRouter);
-=======
->>>>>>> parent of b41642a... Update information user
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

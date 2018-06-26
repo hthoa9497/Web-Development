@@ -24,8 +24,7 @@ var ProductSchema = new Schema(
 	categoryID: {type: Schema.Types.ObjectId, ref: "category"},
   }
 );
-
-
+ProductSchema.indexes({name: 'text', description: 'text'})
 
 //Export model
 module.exports = mongoose.model('Product', ProductSchema);

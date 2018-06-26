@@ -132,6 +132,17 @@ init:function(setting){
 			ddsmoothmenu.buildmenu($, setting)
 		}
 	})
-}
+},
+// ValidPass: function(){
+//     console.log("da vao");
+//     var oldPass
+//     oldPass = document.getElementsByName('oldPassword');
+//     User.comparePassword(oldPass, user.pass, function(err, isMatch ){
+//         if(err) throw err;
+//             if(!isMatch){
+//                 console.log("true");
+//             }
+//     })
+// }
 
 } //end ddsmoothmenu variable
