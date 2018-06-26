@@ -193,6 +193,14 @@ var authenticationController = {
         .catch(function(reject){   
             console.log(reject);
         })
+    },
+    isLoggedIn: function(req, res, next){
+        if(req.isAuthenticated()){
+            return next();
+        }
+        req.session.oldUrl = req.url;
+        console.log(req.session.oldUrl);
+        res.redirect('/user/loginForm');
     }
 }
 module.exports = authenticationController;

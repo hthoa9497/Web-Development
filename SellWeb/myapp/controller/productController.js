@@ -1,7 +1,8 @@
 var Product = require("../models/product.js");
 var async = require('async');
 var loadMenu = require('./loadMenu');
-var Cart = require("../models/cart.js")
+var Cart = require("../models/cart.js");
+var Order = require("../models/order.js");
 
 
 var productController = {
@@ -212,7 +213,26 @@ var productController = {
             res.redirect('/product/shoppingCart');
         }
         var cart = new Cart(req.session.cart);
-        res.render('User/checkout', {totalPrice: cart.totalPrice, layout: 'layoutUser'}  )
+        res.render('User/checkout', {totalQty: cart.totalQty,totalPrice: cart.totalPrice, products: cart.generateArray(), layout: 'layoutUser'}  )
+    },
+    //Order
+    orderProduct: function(req, res){
+        if(!req.session.cart){
+            res.redirect('/product/shoppingCart');
+        }
+        var order = new Order ({
+            user: req.user,
+            cart: req.session.cart,
+            name: req.body.name,
+            address: req.body.address,
+            phone: req.body.phone
+        })
+        order.save(function(err){
+            if(err) throw err;
+            req.flash('success_msg', 'Bạn đã đặt hàng thành công');
+            req.session.cart = null;
+            res.redirect('/');
+        })
     }
 }
 

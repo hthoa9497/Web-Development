@@ -196,4 +196,8 @@ hr {
     content: "";
     clear: both;
     display: table;
+}}
+span.price {
+    float: right;
+    color: grey;
 }

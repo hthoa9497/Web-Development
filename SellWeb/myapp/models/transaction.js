@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var transactionSchema = new Schema({
-  id: Number,
   status: Boolean,
   user_id: Number,
   user_email: String,

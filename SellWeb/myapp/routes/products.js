@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var app = require('../app.js');
 var productController = require('../controller/productController');
+var AuthenticationController = require('../controller/AuthenticationController');
+
 
 //GET products page
 router.get('/', productController.loadAllProduct);
@@ -18,5 +20,7 @@ router.get('/addToCart/:id', productController.addProductToCart)
 //shopping cart
 router.get('/shoppingCart', productController.shoppingCartPage);
 //checkout
-router.get('/shoppingCart/checkout', productController.checkoutPage);
+router.get('/shoppingCart/checkout',AuthenticationController.isLoggedIn, productController.checkoutPage);
+//payment
+router.post('/shoppingCart/checkout', AuthenticationController.isLoggedIn, productController.orderProduct);
 module.exports = router;

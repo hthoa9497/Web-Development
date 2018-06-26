@@ -4,15 +4,11 @@ var Schema = mongoose.Schema;
 
 var OrderSchema = new Schema(
   {
-    id:{type: Number},
-	// id giao dịch, 1 giao dịch có nhiều đơn hàng và 1 đơn hàng phải nằm trong 1 giao dịch
-	transaction_id: {type: Number},
-	//id sản phẩm
-	product_id: {type: Number},
-	// Số lượng sản phẩm trên 1 đơn hàng
-	qty: {type: Number},
-	// Trạng thái đơn hàng đã được gửi chưa
-	status: {type: Boolean}
+		user: {type: Schema.Types.ObjectId, ref: 'User'},
+		cart:{type: Object, required: true},
+		name: {type: String, required: true},
+		address: {type: String, required: true},
+		phone: {type: String, required: true},
   }
 );
 

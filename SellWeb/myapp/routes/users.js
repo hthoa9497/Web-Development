@@ -46,8 +46,13 @@ passport.deserializeUser(function(id, done) {
 
 router.post('/loginForm/login',
     passport.authenticate('local', {failureRedirect: '/user/loginForm', failureFlash: true }),
-    function(req, res){
-        if(req.user.role == 0)
+    function(req, res, next){
+        if(req.session.oldUrl){
+            var oldUrl= req.session.oldUrl;
+            req.session.oldUrl = null;
+            res.redirect(`/product${oldUrl}`);
+        }
+        else if(req.user.role == 0)
             res.redirect('/');
         else
             res.redirect('/adminHome');
