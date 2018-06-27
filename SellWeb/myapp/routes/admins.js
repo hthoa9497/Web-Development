@@ -25,4 +25,6 @@ router.post('/brandTable/create', AdminController.createBrand_Post);
 //Get page user 
 router.get('/userTable', AdminController.loadUserInfo);
 router.delete('/userTable/delete/:id', AdminController.deleteUserInfo);
+//page order
+router.get('/orderTable', AdminController.loadOrderPage);
 module.exports = router;

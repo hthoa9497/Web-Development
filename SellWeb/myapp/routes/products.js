@@ -17,10 +17,16 @@ router.get('/brand/:id/:name',productController.loadBrandProduct);
 router.post('/search', productController.searchProduct);
 //Add to cart
 router.get('/addToCart/:id', productController.addProductToCart)
+//Remove from cart
+router.get('/shoppingCart/remove/:id', productController.removeProductFromCart);
+//Increase 
+router.get('/shoppingCart/increase/:id', productController.increaseProductFromCart);
+//Decrease
+router.get('/shoppingCart/decrease/:id', productController.decreaseProductFromCart);
 //shopping cart
 router.get('/shoppingCart', productController.shoppingCartPage);
-//checkout
+//checkout-get
 router.get('/shoppingCart/checkout',AuthenticationController.isLoggedIn, productController.checkoutPage);
-//payment
+//checkout-post
 router.post('/shoppingCart/checkout', AuthenticationController.isLoggedIn, productController.orderProduct);
 module.exports = router;

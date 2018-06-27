@@ -199,7 +199,6 @@ var authenticationController = {
             return next();
         }
         req.session.oldUrl = req.url;
-        console.log(req.session.oldUrl);
         res.redirect('/user/loginForm');
     }
 }

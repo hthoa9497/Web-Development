@@ -2,6 +2,8 @@ var Brand = require('../models/brand');
 var async = require('async');
 var Product = require("../models/product.js");
 var User = require("../models/user");
+var Order = require("../models/order");
+var Cart = require("../models/cart");
 var loadMenu = require('./loadMenu')
 const {check, validationResult} = require('express-validator/check');
 
@@ -180,7 +182,6 @@ var brandAdminController = {
     },
     //DELETE USER INFOR
     deleteUserInfo: function(req, res){
-        console.log('DA VAO');
         User.deleteMany({
             _id: req.params.id
         },
@@ -188,6 +189,18 @@ var brandAdminController = {
             if(err) throw err;
             redirect('/adminHome/userTable');
         })
+    },
+    //Load order page
+    loadOrderPage: function(req, res, ){
+        Order.find().populate('user').exec(function(err, orders){
+            if(err) throw err;
+            var cart;
+            orders.forEach(function(order){
+                cart = new Cart(order.cart);
+                order.items = cart.generateArray();
+            });
+            res.render('Admin/orderTable', {title: 'Order table', Orders: orders, layout: 'layoutAdmin'})
+        });
     }
 }
 module.exports = brandAdminController;

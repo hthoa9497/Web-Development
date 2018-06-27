@@ -17,10 +17,14 @@
                 <tr>
                     <td><img style="width: 200px; height: 150px" src="/{{item.image_link}}" alt="image 1" /></td> 
                     <td>{{item.description}}</td> 
-                    <td align="center">{{qty}} </td>
+                    <td><div class="count-input space-bottom">
+                            <a class="incr-btn" data-action="decrease" href="/product/shoppingCart/decrease/{{item._id}}">–</a>
+                            <input class="quantity" type="text" name="quantity" value="{{qty}}"/>
+                            <a class="incr-btn" data-action="increase" href="/product/shoppingCart/increase/{{item._id}}">&plus;</a>
+                        </div></td>
                     <td align="right">{{item.price}} </td> 
                     <td align="right">{{price}} </td> 
-                    <td align="center"> <a href="#"><img src="/images/remove_x.gif" alt="remove" /><br />Remove</a> </td>
+                    <td align="center"> <a href="/product/shoppingCart/remove/{{item._id}}"><img src="/images/remove_x.gif" alt="remove" /><br />Remove</a> </td>
                 </tr>
                 {{/each}}
                 <tr>

@@ -195,9 +195,33 @@ var productController = {
             }
             cart.add(product, product.id);
             req.session.cart = cart;
-            console.log(cart);
             res.redirect('/');
         });
+    },
+    //Remove from cart
+    removeProductFromCart: function(req, res){
+        cart = new Cart(req.session.cart);
+        cart.remove(req.params.id);
+        req.session.cart = cart;
+        console.log(req.session.cart);
+        res.redirect('/product/shoppingCart');
+        
+    },
+    //Increase
+    increaseProductFromCart: function(req, res){
+        cart = new Cart(req.session.cart);
+        cart.increase(req.params.id);
+        req.session.cart = cart;
+        res.redirect('/product/shoppingCart');
+        
+    },
+    //Decrease
+    decreaseProductFromCart: function(req, res){
+        cart = new Cart(req.session.cart);
+        cart.decrease(req.params.id);
+        req.session.cart = cart;
+        res.redirect('/product/shoppingCart');
+        
     },
     //Shopping cart
     shoppingCartPage: function(req, res){
@@ -233,7 +257,7 @@ var productController = {
             req.session.cart = null;
             res.redirect('/');
         })
-    }
+    },
 }
 
 module.exports = productController;
