@@ -2,12 +2,9 @@
 <div id="templatemo_body_wrapper">
 <div id="templatemo_wrapper">
 	<div id="templatemo_header">
-        {{#if success_msg}}
-            <div class="alert alert-success">{{success_msg}}</div>
-        {{/if}}
-    	<div id="site_title"><h1><a href="#">Online Shoes Store</a></h1></div>
+    	<div id="site_title"><h1><a href="/">Online Shoes Store</a></h1></div>
         <div id="header_right">
-	        <a href="#">Tài khoản</a> | <a href="#">Giỏ hàng</a> | <a href="#">Kiểm tra</a> {{#if user}} | Xin chào: {{user.name}} 
+	        {{#if user}}<a href="/user/editInfo">Tài khoản</a> |{{/if}} <a href="/product/shoppingCart">Giỏ hàng</a> {{#if user}} | Xin chào: {{user.name}} 
             <div class="dropdown"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                 <div class="dropdown-content">
                     <a href="/user/logout" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Đăng xuất</a>
@@ -35,9 +32,8 @@
                 {{/each}}
                 </li>
                 <li><a href="/about">Thông tin</a>
-                <li><a href="/faqs">FAQs</a></li>
+                <li><a href="/faqs">Trợ giúp</a></li>
                 <li><a href="/contactus">Liên hệ</a></li>
-                <li><a href="/checkout">Kiểm tra</a><li>
             </ul>
             <br style="clear: left" />
         </div> <!-- end of ddsmoothmenu -->

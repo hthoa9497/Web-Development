@@ -195,7 +195,7 @@ var productController = {
             }
             cart.add(product, product.id);
             req.session.cart = cart;
-            res.redirect('/');
+            res.redirect('back');
         });
     },
     //Remove from cart
@@ -203,7 +203,6 @@ var productController = {
         cart = new Cart(req.session.cart);
         cart.remove(req.params.id);
         req.session.cart = cart;
-        console.log(req.session.cart);
         res.redirect('/product/shoppingCart');
         
     },
@@ -231,7 +230,7 @@ var productController = {
         var cart = new Cart(req.session.cart);
         res.render('User/shoppingcart', {products: cart.generateArray(), totalPrice: cart.totalPrice, layout: 'layoutUser'});
     },
-    //checkout
+    //checkout get
     checkoutPage: function(req, res){
         if(!req.session.cart){
             res.redirect('/product/shoppingCart');
@@ -239,7 +238,7 @@ var productController = {
         var cart = new Cart(req.session.cart);
         res.render('User/checkout', {totalQty: cart.totalQty,totalPrice: cart.totalPrice, products: cart.generateArray(), layout: 'layoutUser'}  )
     },
-    //Order
+    //checkout post
     orderProduct: function(req, res){
         if(!req.session.cart){
             res.redirect('/product/shoppingCart');
@@ -249,7 +248,8 @@ var productController = {
             cart: req.session.cart,
             name: req.body.name,
             address: req.body.address,
-            phone: req.body.phone
+            phone: req.body.phone,
+            check: '1'
         })
         order.save(function(err){
             if(err) throw err;

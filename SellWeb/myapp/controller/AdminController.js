@@ -1,3 +1,5 @@
+
+
 var Brand = require('../models/brand');
 var async = require('async');
 var Product = require("../models/product.js");
@@ -201,6 +203,24 @@ var brandAdminController = {
             });
             res.render('Admin/orderTable', {title: 'Order table', Orders: orders, layout: 'layoutAdmin'})
         });
+    },
+    //status order
+    updateStatusOrder: function(req,res){
+        var promise = new Promise((resolve, reject)=>{
+            Order.findById(req.params.id).exec(function(err, order){
+                if(err) throw err;
+                resolve(order);
+            })
+        }).then(order=>{
+            var tempOrder = order;
+            order.check = req.body.status;
+            console.log(req.body.status);
+            console.log(order);
+            Order.findByIdAndUpdate(req.params.id, tempOrder, function(err){
+                if(err) throw err;
+                res.redirect('/adminHome/orderTable');
+            })
+        })
     }
 }
 module.exports = brandAdminController;

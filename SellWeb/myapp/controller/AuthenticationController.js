@@ -183,6 +183,10 @@ var authenticationController = {
                             });
                         })
                     }
+                    else{
+                        req.flash('error_msg' , 'Mật khẩu mới và xác nhận mật khẩu không khớp');
+                        res.redirect('/user/editPassword')
+                    }
                 }
                 else{
                     req.flash('error_msg' , 'Mật khẩu củ sai');

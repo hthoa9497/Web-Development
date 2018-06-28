@@ -7,17 +7,6 @@
         Bảng hóa đơn
     </h3>
     </div>
-
-    <div class="title_right">
-      <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-        </div>
-      </div>
-    </div>
   </div>
 <div class="clearfix"></div>
 
@@ -33,7 +22,8 @@
                     {{name}}<br>
                     {{address}}<br>
                     {{phone}}<br>
-                    Tài khoản: {{user.username}}
+                    Tài khoản: {{user.username}}<br>
+					Tình trạng: {{check}}
                 </address>
             </div>
     	</div>
@@ -74,6 +64,25 @@
     							</tr>
     						</tbody>
     					</table>
+						<form action="/adminHome/orderTable/status/{{this._id}}" method="POST" >
+							<div class="col-md-12">
+							<div class="col-md-4" style="display: flex; justify-content: center;">
+								<input value="Chưa giao" name="status" type="radio"> Chưa giao </input>
+							</div>
+							<div class="col-md-4" style="display: flex; justify-content: center;">
+								<input value="Đang giao" name="status" type="radio"> Đang giao </input>
+							</div>
+							<div class="col-md-4" style="display: flex; justify-content: center;">	
+								<input  value="Đã giao" name="status" type="radio"> Đã giao </input>
+							</div>
+							</div>
+							<br>
+							<br>
+							<div style="display: flex; justify-content: center;">
+								<button type="submit" class="btn btn-info">Cập nhật tình trạng</button>
+							</div>
+							
+						</form>
     				</div>
     			</div>
     		</div>
@@ -84,23 +93,7 @@
 </div>
 </div>
 <!-- footer content -->
-<footer>
-    <div class="copyright-info">
-        <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a></p>
-    </div>
-    <div class="clearfix"></div>
-</footer>
 <!-- /footer content -->
 </div>
 <!-- /page content -->
 </div>
-<div id="custom_notifications" class="custom-notifications dsp_none">
-  <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-  </ul>
-  <div class="clearfix"></div>
-  <div id="notif-group" class="tabbed_notifications"></div>
-</div>
-
-
-
- 

@@ -27,4 +27,5 @@ router.get('/userTable', AdminController.loadUserInfo);
 router.delete('/userTable/delete/:id', AdminController.deleteUserInfo);
 //page order
 router.get('/orderTable', AdminController.loadOrderPage);
+router.post('/orderTable/status/:id',AdminController.updateStatusOrder);
 module.exports = router;
