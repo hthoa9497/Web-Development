@@ -52,6 +52,7 @@ var authenticationController = {
     userLoginPage: function(req,res){
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -64,10 +65,16 @@ var authenticationController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err, result){
-                res.render('User/loginForm', {title:'Login page', Categories: result.two, Brands: result.one, layout: 'layoutUser'});
+                res.render('User/loginForm', {title:'Login page',productTopTen: result.three, Categories: result.two, Brands: result.one, layout: 'layoutUser'});
             }
         )
     },
@@ -76,6 +83,7 @@ var authenticationController = {
     userEditInfoPage: function(req,res){
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -88,10 +96,16 @@ var authenticationController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err, result){
-                res.render('User/editInfo', {title:'Edit information', Categories: result.two, Brands: result.one, layout: 'layoutUser'});
+                res.render('User/editInfo', {title:'Edit information', productTopTen: result.three,  Categories: result.two, Brands: result.one, layout: 'layoutUser'});
             }
         )
     },
@@ -139,6 +153,7 @@ var authenticationController = {
     userEditPasswordPage: function(req, res){
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -151,10 +166,16 @@ var authenticationController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err, result){
-                res.render('User/editInfo', {title:'Edit information', Categories: result.two, Brands: result.one, layout: 'layoutUser', isEditPass: '1'});
+                res.render('User/editInfo', {title:'Edit information',productTopTen: result.three, Categories: result.two, Brands: result.one, layout: 'layoutUser', isEditPass: '1'});
             }
         )
     },

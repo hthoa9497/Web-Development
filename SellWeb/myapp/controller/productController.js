@@ -9,6 +9,7 @@ var productController = {
     loadHomeProduct: function (req, res) {
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = []
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -21,6 +22,12 @@ var productController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
         function(err,result){
@@ -31,7 +38,7 @@ var productController = {
                 for (var i = 0; i < 6; i += chuckSize) {
                     productChuck.push(docs.slice(i, i + chuckSize));
                 }
-                res.render('User/index', { title: 'Shoes-shop', Products: productChuck, Categories: result.two, Brands: result.one, layout: 'layoutUser'  })
+                res.render('User/index', { title: 'Shoes-shop', Products: productChuck, productTopTen: result.three, Categories: result.two, Brands: result.one, layout: 'layoutUser'  })
             })
         }
         )
@@ -39,6 +46,7 @@ var productController = {
     loadAllProduct: function (req, res) {
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = []
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -51,6 +59,12 @@ var productController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
         function(err,result){
@@ -61,7 +75,7 @@ var productController = {
                 for (var i = 0; i < docs.length; i += chuckSize) {
                     productChuck.push(docs.slice(i, i + chuckSize));
                 }
-                res.render('User/products', { title: 'ProductSite', Products: productChuck, Categories: result.two, Brands: result.one, layout: 'layoutUser'  })
+                res.render('User/products', { title: 'ProductSite', Products: productChuck, productTopTen: result.three, Categories: result.two, Brands: result.one, layout: 'layoutUser'  })
             })
         }
         )
@@ -69,6 +83,7 @@ var productController = {
     loadDetailProduct: function (req, res) {
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = []
         async.parallel({
             one: function (callback) {
                 Product.find({ brand: req.params.brand }, function (err, relativeProduct) {
@@ -95,6 +110,12 @@ var productController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            five: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
         function (err, result) {
@@ -105,6 +126,7 @@ var productController = {
                 title: 'Product detail',
                 productdetail: result.two,
                 relativeproduct: productChuck,
+                productTopTen: result.five,
                 Categories: result.four,
                 Brands: result.three,
                 layout: 'layoutUser' 
@@ -117,6 +139,7 @@ var productController = {
         var productChuck = [];
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -129,6 +152,12 @@ var productController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
         function(err,result){
@@ -137,7 +166,7 @@ var productController = {
                 if (err) throw err;
                 else {
                     productChuck.push(Products.slice(0, Products.length));
-                    res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck, name: Name, Categories: result.two, Brands: result.one, layout: 'layoutUser' });
+                    res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck, productTopTen: result.three, name: Name, Categories: result.two, Brands: result.one, layout: 'layoutUser' });
                 }
             });
         }
@@ -149,6 +178,7 @@ var productController = {
         var productChuck = [];
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = []
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -161,6 +191,12 @@ var productController = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err,result){
@@ -169,7 +205,7 @@ var productController = {
                     if (err) throw err;
                     else {
                         productChuck.push(Products.slice(0, Products.length));
-                        res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck,name: Name, Categories: result.two, Brands: result.one, layout: 'layoutUser' });
+                        res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck, productTopTen: result.three, name: Name, Categories: result.two, Brands: result.one, layout: 'layoutUser' });
                     }
                 });
             }
@@ -178,12 +214,38 @@ var productController = {
     //search product
     searchProduct: function(req, res){
         var productChuck = [];
-        Product.find({$text: {$search: req.body.keyword}}).exec(function(err,docs){
-            if(err) throw err;
-            productChuck.push(docs.slice(0, docs.length));
-            console.log(docs);
-            res.render('User/Group-products', { title: 'Group-Products', GroupProducts: productChuck,name: req.body.keyword, layout: 'layoutUser'});
-        })
+        var categoryChuck = [];
+        var brandChuck = [];
+        var productTopChuck = []
+        async.parallel({
+            one: function(callback){
+                loadMenu.loadBrandMenu().then(result => {
+                    brandChuck.push(result.slice(0,result.length))
+                    callback(null, brandChuck);
+                });
+            },
+            two: function(callback){
+                loadMenu.loadCategoryMenu().then(result => {
+                    categoryChuck.push(result.slice(0,result.length))
+                    callback(null,categoryChuck);
+                });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
+            }
+        },
+            function(err, result){
+                Product.find({$text: {$search: req.body.keyword}}).exec(function(err,docs){
+                    if(err) throw err;
+                    productChuck.push(docs.slice(0, docs.length));
+                    console.log(docs);
+                    res.render('User/Group-products', { title: 'Group-Products',productTopTen: result.three, Categories: result.two, Brands: result.one,GroupProducts: productChuck,name: req.body.keyword, layout: 'layoutUser'});
+                })
+            }
+        )
     },
     //Add to cart
     addProductToCart: function(req,res){
@@ -224,19 +286,75 @@ var productController = {
     },
     //Shopping cart
     shoppingCartPage: function(req, res){
-        if(!req.session.cart){
-            return res.render('User/shoppingcart', {products: null, layout: 'layoutUser'});
-        }
-        var cart = new Cart(req.session.cart);
-        res.render('User/shoppingcart', {products: cart.generateArray(), totalPrice: cart.totalPrice, layout: 'layoutUser'});
+        var categoryChuck = [];
+        var brandChuck = [];
+        var productTopChuck = []
+        async.parallel({
+            one: function(callback){
+                loadMenu.loadBrandMenu().then(result => {
+                    brandChuck.push(result.slice(0,result.length))
+                    callback(null, brandChuck);
+                });
+            },
+            two: function(callback){
+                loadMenu.loadCategoryMenu().then(result => {
+                    categoryChuck.push(result.slice(0,result.length))
+                    callback(null,categoryChuck);
+                });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
+            }
+        },
+            function(err,result){
+                if(err) throw err;
+                else {
+                    if(!req.session.cart){
+                        return res.render('User/shoppingcart', {products: null, layout: 'layoutUser'});
+                        res.render('User/shoppingcart', {title: 'shopping cart',productTopTen: result.three,Categories: result.two, Brands: result.one,  products: null, layout: 'layoutUser'});
+                    }
+                    var cart = new Cart(req.session.cart);
+                    res.render('User/shoppingcart', {title: 'shopping cart',productTopTen: result.three,Categories: result.two, Brands: result.one,  products: cart.generateArray(), totalPrice: cart.totalPrice, layout: 'layoutUser'});
+                }
+            }
+        )
     },
     //checkout get
     checkoutPage: function(req, res){
         if(!req.session.cart){
             res.redirect('/product/shoppingCart');
         }
-        var cart = new Cart(req.session.cart);
-        res.render('User/checkout', {totalQty: cart.totalQty,totalPrice: cart.totalPrice, products: cart.generateArray(), layout: 'layoutUser'}  )
+        var categoryChuck = [];
+        var brandChuck = [];
+        var productTopChuck = []
+        async.parallel({
+            one: function(callback){
+                loadMenu.loadBrandMenu().then(result => {
+                    brandChuck.push(result.slice(0,result.length))
+                    callback(null, brandChuck);
+                });
+            },
+            two: function(callback){
+                loadMenu.loadCategoryMenu().then(result => {
+                    categoryChuck.push(result.slice(0,result.length))
+                    callback(null,categoryChuck);
+                });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
+            }
+        },
+        function(err, result){
+            var cart = new Cart(req.session.cart);
+            res.render('User/checkout', { title: 'checkout page', productTopTen: result.three,Categories: result.two, Brands: result.one,  totalQty: cart.totalQty,totalPrice: cart.totalPrice, products: cart.generateArray(), layout: 'layoutUser'}  )
+        }
+    )
     },
     //checkout post
     orderProduct: function(req, res){

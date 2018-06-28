@@ -5,6 +5,7 @@ var menuTags = {
     aboutTag: function(req,res){
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -17,16 +18,24 @@ var menuTags = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err, result){
-                res.render('User/about', {title: 'about us', Categories: result.two, Brands: result.one, layout: 'layoutUser'})
+                res.render('User/about', {title: 'about us', productTopTen: result.three,
+                Categories: result.two, Brands: result.one, layout: 'layoutUser'})
             }
         )
     },
     FAQsTag: function(req,res){
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -39,16 +48,23 @@ var menuTags = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err, result){
-                res.render('User/faqs', {title: "FAQs", Categories: result.two, Brands: result.one, layout: 'layoutUser'})
+                res.render('User/faqs', {title: "FAQs", productTopTen: result.three, Categories: result.two, Brands: result.one, layout: 'layoutUser'})
             }
         )
     },
     contactusTag: function(req,res){
         var categoryChuck = [];
         var brandChuck = [];
+        var productTopChuck = [];
         async.parallel({
             one: function(callback){
                 loadMenu.loadBrandMenu().then(result => {
@@ -61,10 +77,16 @@ var menuTags = {
                     categoryChuck.push(result.slice(0,result.length))
                     callback(null,categoryChuck);
                 });
+            },
+            three: function(callback){
+                loadMenu.loadTopTen().then(result =>{
+                    productTopChuck.push(result.slice(0,result.length))
+                    callback(null,productTopChuck);
+                })
             }
         },
             function(err, result){
-                res.render('User/contact', {title: "Contactus", Categories: result.two, Brands: result.one, layout: 'layoutUser'})
+                res.render('User/contact', {title: "Contactus",productTopTen: result.three, Categories: result.two, Brands: result.one, layout: 'layoutUser'})
             }
         )
     }
