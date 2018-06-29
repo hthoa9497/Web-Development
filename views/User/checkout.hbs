@@ -1,0 +1,36 @@
+        <div id="content" class="float_r">
+        	<h2>Checkout</h2>
+            <h5><strong>BILLING INFORMATION</strong></h5>
+            <form method="POST" action="/product/shoppingCart/checkout" style="border:1px solid #ccc">
+                <div class="content_half float_l checkout">
+				Full Name (must be same as on your credit card):  
+                  <input name="name" type="text"  style="width:300px;" required />
+                <br />
+                <br />
+                Address:
+				<input name="address" type="text"  style="width:300px;" required />
+                <br />
+                <br />
+                 PHONE
+                <input name="phone" type="text"  style="width:300px;" required />
+                <div class="cleaner h50"></div>
+                <h3>SHOPPING CART</h3>
+                <h4>TOTAL AMOUNT: <strong>{{totalPrice}}</strong></h4>
+                <button type="submit" class="signupbtn">Thanh toán</button>
+            </div>
+             </form>
+            <div class="content_half float_r checkout">
+            	<div class="col-25">
+                    <div class="container">
+                        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{totalQty}}</b></span></h4>
+                        {{# each products}}
+                        <p><a href="#">{{item.name}}</a> <span class="price">{{price}}</span></p>
+                        <hr>
+                        {{/each}}
+                        <p>Total <span class="price" style="color:black"><b>{{totalPrice}}</b></span></p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="cleaner"></div>
+    </div> <!-- END of templatemo_main -->

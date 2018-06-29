@@ -1,0 +1,48 @@
+        <div id="content" class="float_r">
+        	<h1>Chi tiết sản phẩm</h1>
+            {{# productdetail}}
+            {{# this}}
+            <div class="content_half float_l">
+        	<a  rel="lightbox[portfolio]" href="/{{this.image_link}}"><img width="250px" height="250px" src="/{{this.image_link}}" alt="image" /></a>
+            </div>
+            <div class="content_half float_r">
+                <table>
+                    <tr>
+                        <td width="160">Giá:</td>
+                        <td>{{this.price}} VND</td>
+                    </tr>
+                    <tr>
+                        <td>Tình trạng:</td>
+                        <td>{{this.availability}}</td>
+                    </tr>
+                    <tr>
+                        <td>Loại</td>
+                        <td>Giày {{this.categoryID.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>NSX:</td>
+                        <td>{{this.brand.name}}</td>
+                    </tr>
+                </table>
+                <div class="cleaner h20"></div>
+
+                <a href="/product/addToCart/{{this._id}}" class="addtocart"></a>
+
+			</div>
+            <div class="cleaner h30"></div>
+            
+            <h5>Mô tả</h5>
+            <p>{{this.description}}</p>	
+            {{/this}}
+          <div class="cleaner h50"></div>
+          {{/productdetail}}
+            
+            <h3>Sản phẩm liên quan</h3>
+            {{# each relativeproduct}}
+            {{# each this}}
+        	{{> showproducts}}
+            {{/each}}     	
+            {{/each}}
+        </div> 
+        <div class="cleaner"></div>
+    </div> <!-- END of templatemo_main -->

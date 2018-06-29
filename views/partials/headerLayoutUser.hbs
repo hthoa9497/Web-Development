@@ -1,0 +1,77 @@
+
+<div id="templatemo_body_wrapper">
+<div id="templatemo_wrapper">
+	<div id="templatemo_header">
+    	<div id="site_title"><h1><a href="/">Online Shoes Store</a></h1></div>
+        <div id="header_right">
+	        {{#if user}}<a href="/user/editInfo">Tài khoản</a> |{{/if}} <a href="/product/shoppingCart">Giỏ hàng</a> {{#if user}} | Xin chào: {{user.name}} 
+            <div class="dropdown"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                <div class="dropdown-content">
+                    <a href="/user/logout" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Đăng xuất</a>
+                    <a href="/user/editInfo" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Thông tin tài khoản</a>
+                    <a href="/user/editPassword" style="color: white; background-color: rgba(7, 21, 26, 0.74);">Đổi mật khẩu</a>
+                </div>
+            </div>{{else}} | <a href="/user/loginForm">Đăng nhập</a>{{/if}}
+            <p>
+            	Shopping Cart: <strong>{{session.cart.totalQty}} sản phẩm</strong> ( <a href="/product/shoppingCart">Show Cart</a> )
+			</p>
+		</div>
+    <div class="cleaner"></div>
+    </div> <!-- END of templatemo_header -->
+    <div id="templatemo_menubar">
+        <div id="top_nav" class="ddsmoothmenu">
+            <ul>
+                <li><a href="/" class="selected">Trang chủ</a></li>
+                <li><a href="/product">Sản phẩm</a>
+                {{# each Categories}}
+                    <ul>
+                        {{# each this}}
+                        <li><a href="/product/category-products/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
+                        {{/each}}
+                    </ul>
+                {{/each}}
+                </li>
+                <li><a href="/about">Thông tin</a>
+                <li><a href="/faqs">Trợ giúp</a></li>
+                <li><a href="/contactus">Liên hệ</a></li>
+            </ul>
+            <br style="clear: left" />
+        </div> <!-- end of ddsmoothmenu -->
+        <div id="templatemo_search">
+            <form action="/product/search" method="POST">
+              <input type="text" value="" name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+              <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="Search" class="sub_btn"  />
+            </form>
+        </div>
+    </div> <!-- END of templatemo_menubar -->
+	
+    <div id="templatemo_main">
+    	<div id="sidebar" class="float_l">
+        	<div class="sidebar_box"><span class="bottom"></span>
+            	<h3>Thương hiệu</h3>   
+                <div class="content"> 
+                    {{# each Brands}}
+                	<ul class="sidebar_list">
+                    	{{# each this}}
+                        <li><a href="/product/brand/{{this._id}}/{{this.name}}">{{this.name}}</a></li>
+                        {{/each}}
+                    </ul>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="sidebar_box"><span class="bottom"></span>
+            	<h3>Bán chạy nhất </h3>   
+                {{# each productTopTen}}
+                <div class="content"> 
+                    {{# each this}}
+                	<div class="bs_box">
+                    	<a href="/product/productDetail/{{this.brand}}/{{this._id}}"><img style="width: 58px; height: 58px;" src="/{{this.image_link}}" alt="image" /></a>
+                        <h4><a href="/product/productDetail/{{this.brand}}/{{this._id}}">{{this.name}}</a></h4>
+                        <p class="price">{{this.price}}</p>
+                        <div class="cleaner"></div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/each}}
+            </div>
+	</div>

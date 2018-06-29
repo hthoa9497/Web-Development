@@ -1,0 +1,45 @@
+<div id="content" class="float_r">
+  <div class="signup-form" style="margin: 50px;"><!--sign up form-->
+    {{#if success_msg}}
+      <div class="alert alert-success">{{success_msg}}</div>
+    {{/if}}
+    {{#if error_msg}}
+      <div class="alert alert-error">{{error_msg}}</div>
+    {{/if}}
+    {{#if isEditPass}}
+    <form action="/user/editPassword/{{user._id}}" method="post" if-match="*" style="border:1px solid #ccc">
+      <div class="container">
+        <h1>Đổi mật khẩu</h1>
+        <hr>
+        <input type="password" placeholder="Nhập mật khẩu củ" name="oldPassword" required/>
+        <input type="password" placeholder="Nhập mật khẩu mới" name="newPassword" required/>
+        <input type="password" placeholder="Xác nhận mật khẩu" name="repeatPassword" required/>
+
+        <div class="clearfix center-row">
+          <button type="button" class="cancelbtn"><a href="/">Hủy</a></button>
+          <button type="submit" class="signupbtn">Cập nhật</button>
+        </div>
+      </div>
+    </form>
+    {{else}}
+    <form action="/user/editInfo" method="post" if-match="*" style="border:1px solid #ccc">
+      <div class="container">
+        <h1>Cập nhật thông tin tài khoản</h1>
+        <hr>
+        <input type="text" name="name" value="{{user.name}}" required/>
+        <input type="text" name="date_of_birth" value="{{user.date_of_birth}}" required/>
+        <input type="email" name="email" value="{{user.email}}" required/>
+        <input type="text" name="phone" value="{{user.phone}}" required/>
+        <input type="text" name="username" value="{{user.username}}" required/>
+
+        <div class="clearfix center-row">
+          <button type="button" class="cancelbtn"><a href="/">Hủy</a></button>
+          <button type="submit" class="signupbtn">Cập nhật</button>
+        </div>
+      </div>
+    </form>
+    {{/if}}
+  </div><!--/sign up form-->
+</div> 
+<div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->

@@ -1,0 +1,49 @@
+
+
+    <div id="content" class="float_r">
+        <h1>Shopping Cart</h1>
+        {{# if products}}
+        <table width="680px" cellspacing="0" cellpadding="5">
+                    <tr bgcolor="#ddd">
+                        <th width="220" align="left">Image </th> 
+                        <th width="180" align="left">Description </th> 
+                        <th width="100" align="center">Quantity </th> 
+                        <th width="60" align="right">Price </th> 
+                        <th width="60" align="right">Total </th> 
+                        <th width="90"> </th>
+                        
+                    </tr>
+                {{# each products}}
+                <tr>
+                    <td><img style="width: 200px; height: 150px" src="/{{item.image_link}}" alt="image 1" /></td> 
+                    <td>{{item.description}}</td> 
+                    <td><div class="count-input space-bottom">
+                            <a class="incr-btn" data-action="decrease" href="/product/shoppingCart/decrease/{{item._id}}">–</a>
+                            <input class="quantity" type="text" name="quantity" value="{{qty}}"/>
+                            <a class="incr-btn" data-action="increase" href="/product/shoppingCart/increase/{{item._id}}">&plus;</a>
+                        </div></td>
+                    <td align="right">{{item.price}} </td> 
+                    <td align="right">{{price}} </td> 
+                    <td align="center"> <a href="/product/shoppingCart/remove/{{item._id}}"><img src="/images/remove_x.gif" alt="remove" /><br />Remove</a> </td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td colspan="3" align="right"  height="30px">Have you modified your basket? Please click here to <a href="shoppingcart.html"><strong>Update</strong></a>&nbsp;&nbsp;</td>
+                    <td align="right" style="background:#ddd; font-weight:bold"> Total </td>
+                    <td align="right" style="background:#ddd; font-weight:bold">{{totalPrice}}</td>
+                    <td style="background:#ddd; font-weight:bold"> </td>
+                </tr>
+                </table>
+                <div style="float:right; width: 215px; margin-top: 20px;">
+                
+                <p><a href="/product/shoppingCart/checkout">Proceed to checkout</a></p>
+                <p><a href="javascript:history.back()">Continue shopping</a></p>
+                    
+                </div>
+                {{else}}
+                <h1>KHÔNG CÓ SẢN PHẨM NÀO TRONG GIỎ</h1>
+                {{/if}}
+        </div>
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+    
